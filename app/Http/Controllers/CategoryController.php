@@ -14,6 +14,11 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
+        
+        if (request()->wantsJson()) {
+            return response()->json($categories, 200, [], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        }
+
         return view("Admin.Category", ["categories" => $categories]);
     }
 
@@ -31,8 +36,12 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         $data = $request->validated();
-        Category::create($data);
+        $category = Category::create($data);
         
+        if ($request->wantsJson()) {
+            return response()->json($category, 201, [], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        }
+
         return redirect()->route("categories.index")->with('success', 'Danh mục đã được thêm thành công');
     }
 
@@ -41,7 +50,11 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        // return view("Admin.ShowCategory", ["category" => $category]);
+        if (request()->wantsJson()) {
+            return response()->json($category, 200, [], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        }
+
+        return view("Admin.ShowCategory", ["category" => $category]);
     }
 
     /**
@@ -60,6 +73,10 @@ class CategoryController extends Controller
         $data = $request->validated();
         $category->update($data);
         
+        if ($request->wantsJson()) {
+            return response()->json($category, 200, [], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        }
+
         return redirect()->route("categories.index")->with('success', 'Danh mục đã được cập nhật thành công');
     }
 
@@ -69,6 +86,11 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
+
+        if (request()->wantsJson()) {
+            return response()->json(null, 204, [], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        }
+
         return redirect()->route("categories.index")->with('success', 'Danh mục đã được xoá thành công');
     }
 }

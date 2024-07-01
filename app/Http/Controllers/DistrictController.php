@@ -55,4 +55,10 @@ class DistrictController extends Controller
         $district->delete();
         return redirect()->route('districts.index')->with('success', 'Quận/Huyện đã được xóa thành công');
     }
+
+    public function getWards($district_id)
+    {
+        $wards = District::findOrFail($district_id)->wards()->pluck('NameWard', 'id');
+        return response()->json($wards);
+    }
 }

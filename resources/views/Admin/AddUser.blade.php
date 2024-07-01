@@ -44,7 +44,6 @@
                 <option value="Senior Employee">Senior Employee</option>
                 {{-- Junior có thể đọc  --}}
                 <option value="Junior Employee">Junior Employee</option>
-                <option value="Customer">Customer</option>
             </select>
         </div>
 
