@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 col-md-9">
-                    <div id="colorlib-logo"><a href="index.html">VinaWatch</a></div>
+                    <div id="colorlib-logo"><a href="/">VinaWatch</a></div>
                 </div>
                 <div class="col-sm-5 col-md-3">
                     <form action="#" class="search-wrap">
@@ -17,32 +17,33 @@
             <div class="row">
                 <div class="col-sm-12 text-left menu-1">
                     <ul>
-                        <li class="active"><a href="index.html">Trang chủ</a></li>
+                        <li class="active"><a href="/">Trang chủ</a></li>
                         <li class="has-dropdown">
-                            <a href="men.html">Danh mục</a>
+                            <a href="{{ url('/category/category') }}">Danh mục</a>
                             <ul class="dropdown">
-                                <li><a href="product-detail.html">Đồng hồ Nam</a></li>
-                                <li><a href="cart.html">Đồng hồ Nữ</a></li>
-                                <li><a href="checkout.html">Đồng hồ Thuỵ Sĩ</a></li>
-                                <li><a href="order-complete.html">Đồng hồ Nhật Bản</a></li>
-                                <li><a href="add-to-wishlist.html">Đồng hồ Cơ</a></li>
-                                <li><a href="add-to-wishlist.html">Đồng hồ Điện tử</a></li>
+                                <li><a href="{{ url('/category/men') }}">Đồng hồ Nam</a></li>
+                                <li><a href="{{ url('/category/women') }}">Đồng hồ Nữ</a></li>
+                                <li><a href="{{ url('/category/swiss') }}">Đồng hồ Thuỵ Sĩ</a></li>
+                                <li><a href="{{ url('/category/japan') }}">Đồng hồ Nhật Bản</a></li>
+                                <li><a href="{{ url('/category/mechanical') }}">Đồng hồ Cơ</a></li>
+                                <li><a href="{{ url('/category/electronic') }}">Đồng hồ Điện tử</a></li>
                             </ul>
                         </li>
                         <li class="has-dropdown">
-                            <a href="men.html">Thương hiệu</a>
+                            <a href="{{ url('/brand/brand') }}">Thương hiệu</a>
                             <ul class="dropdown">
-                                <li><a href="product-detail.html">Rolex</a></li>
-                                <li><a href="cart.html">Tissot</a></li>
-                                <li><a href="checkout.html">Patek Philippe</a></li>
-                                <li><a href="order-complete.html">Omega</a></li>
-                                <li><a href="add-to-wishlist.html">Seiko</a></li>
-                                <li><a href="add-to-wishlist.html">Citizen</a></li>
-                                <li><a href="add-to-wishlist.html">Casio</a></li>
+                                <li><a href="{{ url('/brand/rolex') }}">Rolex</a></li>
+                                <li><a href="{{ url('/brand/tissot') }}">Tissot</a></li>
+                                <li><a href="{{ url('/brand/patek-philippe') }}">Patek Philippe</a></li>
+                                <li><a href="{{ url('/brand/omega') }}">Omega</a></li>
+                                <li><a href="{{ url('/brand/seiko') }}">Seiko</a></li>
+                                <li><a href="{{ url('/brand/citizen') }}">Citizen</a></li>
+                                <li><a href="{{ url('/brand/casio') }}">Casio</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Liên hệ</a></li>
-                        <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+                        <li><a href="{{ url('/contact') }}">Liên hệ</a></li>
+                        <li class="cart"><a href="{{ url('/cart') }}"><i class="icon-shopping-cart"></i>Giỏ hàng [0]</a></li>
+                        <li class="cart"><a href="{{ url('/profile') }}"><i class="icon-user"></i>Tôi</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,12 +57,12 @@
                         <div class="owl-carousel2">
                             <div class="item">
                                 <div class="col">
-                                    <h3><a href="#">Các mẫu Đồng hồ sang trọng</a></h3>
+                                    {{-- <h3><a href="#">Các mẫu Đồng hồ sang trọng</a></h3> --}}
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="col">
-                                    <h3><a href="#">Những sản phẩm đồng hồ bán chạy nhất</a></h3>
+                                    {{-- <h3><a href="#">Những sản phẩm đồng hồ bán chạy nhất</a></h3> --}}
                                 </div>
                             </div>
                         </div>
