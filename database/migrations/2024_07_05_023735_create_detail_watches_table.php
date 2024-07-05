@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('material_glasses', function (Blueprint $table) {
+        Schema::create('detail_watches', function (Blueprint $table) {
             $table->id();
-            $table->string('NameMaterialGlass');
+            $table->foreign('IDWatchCategory')->references('id')->on('watch_categories')->onDelete('cascade');
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('material_glasses');
+        Schema::dropIfExists('detail_watches');
     }
 };

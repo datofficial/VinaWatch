@@ -14,7 +14,12 @@ return new class extends Migration
         Schema::create('manufacturers', function (Blueprint $table) {
             $table->id();
             $table->string('NameManufacturer');
+            $table->text('ShortDescriptionManufacturer');
             $table->text('DescriptionManufacturer');
+            $table->timestamp('CreatedDate')->useCurrent();
+            $table->unsignedBigInteger('CreatedBy');
+            $table->timestamp('UpdatedDate')->useCurrent();
+            $table->unsignedBigInteger('UpdatedBy');
         });
     }
 
