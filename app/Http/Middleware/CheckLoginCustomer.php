@@ -16,6 +16,7 @@ class CheckLoginCustomer
      */
     public function handle(Request $request, Closure $next): Response
     {
+        dd(session());
         if(session()->has('customer')) {
             return $next($request);
         }

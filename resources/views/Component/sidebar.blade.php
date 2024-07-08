@@ -42,7 +42,7 @@
                     <div class="collapse" id="watchManagement">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="{{ route('watches.index') }}">
+                                <a href="">
                                     <span class="sub-item">Chỉnh sửa đồng hồ</span>
                                 </a>
                             </li>

@@ -23,13 +23,14 @@ class AdminAuthController extends Controller
         $account = $request->only(['email', 'password']);
         $admin_name = $request->email;
         $role = user:: where('EmailUser', $admin_name)->value('RoleUser');
+        dd($role);
         if(Auth::guard('admin')->attempt($account)){
             $accountadmin = Auth::guard('admin')->user();
             Auth::login($accountadmin);
             session(['admin' => $accountadmin]);
             return Redirect::route('drink.index');
         }else{
-           return Redirect::route('admin.login');
+           return Redirect::route('dashboard');
         }
     }
 
@@ -44,18 +45,7 @@ class AdminAuthController extends Controller
 
     public function register(Request $request)
     {
-        $request->validate([
-            'NameUser' => ['required', 'string', 'max:255'],
-            'PasswordUser' => ['required', 'string', 'min:8'],
-            'PhoneUser' => ['required', 'string', 'max:15', 'unique:users,PhoneUser'],
-            'EmailUser' => ['required', 'string', 'email', 'max:255', 'unique:users,EmailUser'],
-            'DOBUser' => ['required', 'date'],
-            'RoleUser' => ['required', 'string', 'max:50'],
-            'IDCity' => ['required', 'exists:cities,id'],
-            'IDDistrict' => ['required', 'exists:districts,id'],
-            'IDWard' => ['required', 'exists:wards,id'],
-            'Address' => ['required', 'string', 'max:255'],
-        ]);
+        
 
         $user = User::create([
             'NameUser' => $request->NameUser,
