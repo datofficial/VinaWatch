@@ -34,30 +34,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'NameUser' => 'required|string|max:255',
-            'PasswordUser' => 'required|string|min:6',
-            'PhoneUser' => 'required|string|max:15|unique:users',
-            'EmailUser' => 'required|string|email|max:255|unique:users',
-            'DOBUser' => 'required|date',
-            'RoleUser' => 'required|string|max:255',
-            'IDCity' => 'required|exists:cities,id',
-            'IDDistrict' => 'required|exists:districts,id',
-            'IDWard' => 'required|exists:wards,id',
-            'Address' => 'required|string|max:255',
-        ]);
-
         User::create([
-            'name' => $validated['NameUser'],
-            'password' => Hash::make($validated['PasswordUser']),
-            'PhoneUser' => $validated['PhoneUser'],
-            'email' => $validated['EmailUser'],
-            'DOBUser' => $validated['DOBUser'],
-            'RoleUser' => $validated['RoleUser'],
-            'IDCity' => $validated['IDCity'],
-            'IDDistrict' => $validated['IDDistrict'],
-            'IDWard' => $validated['IDWard'],
-            'Address' => $validated['Address'],
+            'name' => $request['NameUser'],
+            'password' => Hash::make($request['PasswordUser']),
+            'PhoneUser' => $request['PhoneUser'],
+            'email' => $request['EmailUser'],
+            'DOBUser' => $request['DOBUser'],
+            'RoleUser' => $request['RoleUser'],
+            'IDCity' => $request['IDCity'],
+            'IDDistrict' => $request['IDDistrict'],
+            'IDWard' => $request['IDWard'],
+            'Address' => $request['Address'],
         ]);
 
         return redirect()->route('users.index')->with('success', 'Người dùng đã được tạo thành công.');

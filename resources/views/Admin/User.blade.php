@@ -24,7 +24,7 @@
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->RoleUser }}</td>
+                        <td>{{ (1 == $user->RoleUser)? "admin" : "nhân viên"  }}</td>
                         <td>{{ $user->city->NameCity }}</td>
                         <td>{{ $user->district->NameDistrict }}</td>
                         <td>{{ $user->ward->NameWard }}</td>
