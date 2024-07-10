@@ -24,7 +24,7 @@ class AdminAuthController extends Controller
             'EmailUser' => $request->input('EmailUser'),
             'PasswordUser' => $request->input('PasswordUser'),
         ];
-        if (Auth::attempt(['email' => $credentials['EmailUser'], 'password' => $credentials['PasswordUser']])) {
+        if (Auth::attempt(['email' => $credentials['EmailUser'], 'password' => $credentials['PasswordUser']]) || Auth::check()) {
             return Redirect::route("dashboard");
         } else {
             return Redirect::route("login");
