@@ -23,6 +23,7 @@ class AdminAuthController extends Controller
         $account = $request->only(['email', 'password']);
         $admin_name = $request->email;
         $role = user:: where('EmailUser', $admin_name)->value('RoleUser');
+        Auth::
         dd($role);
         if(Auth::guard('admin')->attempt($account)){
             $accountadmin = Auth::guard('admin')->user();

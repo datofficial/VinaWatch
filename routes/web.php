@@ -17,6 +17,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\WardController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\CartController;
 
 // Route của Dashboard - yêu cầu đăng nhập
 Route::middleware(['auth'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -85,6 +86,7 @@ Route::get('/profile', function () {
 });
 
 // Route cho trang giỏ hàng
-Route::get('/cart', function () {
-    return view('User.cart');
-});
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{watch}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update/{watch}', [CartController::class, 'update'])->name('cart.update');
+Route::post('/cart/remove/{watch}', [CartController::class, 'remove'])->name('cart.remove');

@@ -63,9 +63,12 @@ class WatchController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Watch $watch)
+    public function show($id)
     {
         // Hiển thị chi tiết một đồng hồ cụ thể
+        $watch = Watch::with('manufacturer', 'category')->findOrFail($id);
+        return view('User.detailwatch', compact('watch'));
+
     }
 
     /**

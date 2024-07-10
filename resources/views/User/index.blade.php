@@ -78,7 +78,7 @@
                 <div class="featured">
                     <a href="#" class="featured-img" style="background-image: url('{{ asset('User/images/menwatch.jpeg') }}');"></a>
                     <div class="desc">
-                        <h2><a href="#">Đồng hồ Nam</a></h2>
+                        <h2><a href="{{ url('/category/men') }}">Đồng hồ Nam</a></h2>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
         <div class="row row-pb-md">
             <div class="col-lg-3 mb-4 text-center">
                 <div class="product-entry border">
-                    <a href="#" class="prod-img">
+                    <a href="{{ url('/detailwatch') }}" class="prod-img">
                         <img src="{{ asset('User/images/Rolex COSMOGRAPH DAYTONA.png') }}" class="img-fluid" alt="Free html5 bootstrap 4 template">
                     </a>
                     <div class="desc">

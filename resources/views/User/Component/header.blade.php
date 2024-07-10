@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 col-md-9">
-                    <div id="colorlib-logo"><a href="/">VinaWatch</a></div>
+                    <div id="colorlib-logo"><a href="{{ url('/') }}">VinaWatch</a></div>
                 </div>
                 <div class="col-sm-5 col-md-3">
                     <form action="#" class="search-wrap">
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-sm-12 text-left menu-1">
                     <ul>
-                        <li class="active"><a href="/">Trang chủ</a></li>
+                        <li class="active"><a href="{{ url('/') }}">Trang chủ</a></li>
                         <li class="has-dropdown">
                             <a href="{{ url('/category/category') }}">Danh mục</a>
                             <ul class="dropdown">
@@ -43,7 +43,13 @@
                         </li>
                         <li><a href="{{ url('/contact') }}">Liên hệ</a></li>
                         <li class="cart"><a href="{{ url('/cart') }}"><i class="icon-shopping-cart"></i>Giỏ hàng [0]</a></li>
-                        <li class="cart"><a href="{{ url('/profile') }}"><i class="icon-user"></i>Tôi</a></li>
+                        <li class="has-dropdown">
+                            <a href="{{ url('/profile') }}"><i class="icon-user"></i> Tôi</a>
+                            <ul class="dropdown">
+                                <li><a href="{{ url('/profile') }}">Thông tin cá nhân</a></li>
+                                <li><a href="{{ url('/order-history') }}">Lịch sử đơn hàng</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
