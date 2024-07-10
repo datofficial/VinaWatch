@@ -15,7 +15,11 @@ class AdminAuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('Login.Admin.Login');
+        if (Auth::check()) {
+            return Redirect::route("dashboard");
+        } else {
+            return Redirect::route("login");
+        }
     }
 
      public function login(Request $request)
@@ -45,9 +49,9 @@ class AdminAuthController extends Controller
             'name' => $request->NameUser,
             'password' => Hash::make($request->PasswordUser),
             'PhoneUser' => $request->PhoneUser,
-            'EmailUser' => $request->EmailUser,
+            'email' => $request->EmailUser,
             'DOBUser' => $request->DOBUser,
-            'RoleUser' => $request->RoleUser,
+            'RoleUser' => 0,
             'IDCity' => $request->IDCity,
             'IDDistrict' => $request->IDDistrict,
             'IDWard' => $request->IDWard,

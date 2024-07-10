@@ -30,7 +30,7 @@
                 <li class="nav-item" style="text-align: left;">
                     <a href="{{ route('users.index') }}">
                         <i class="fas fa-layer-group"></i>
-                        <p>Quản lý người dùng</p>
+                        <p>Quản lý nhân viên</p>
                     </a>
                 </li>
                 <li class="nav-item" style="text-align: left;">
@@ -47,6 +47,7 @@
                                 </a>
                             </li>
                             @if (Auth::check() && Auth::user()->isAdmin())
+                            //những menu hiển thị với admin
                             <li>
 
                                 <a href="{{ route('manufacturers.index') }}">

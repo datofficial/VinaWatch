@@ -20,7 +20,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\CartController;
 
 Route::middleware(['admin'])->group(function (){
-// route for admin
+// route cho admin được phép dùng
 
 });
 

@@ -1,13 +1,13 @@
 @extends('Admin.index')
 @section('content')
 <div class="container">
-    <h1>Thêm Người dùng</h1>
+    <h1>Thêm Nhân viên</h1>
     <form action="{{ route('users.store') }}" method="POST">
         @csrf
 
         <!-- Tên Người dùng -->
         <div class="form-group">
-            <label for="NameUser">Tên Người dùng</label>
+            <label for="NameUser">Tên Nhân viên</label>
             <input type="text" class="form-control" id="NameUser" name="NameUser" required>
         </div>
 
@@ -41,9 +41,9 @@
             <select class="form-control" id="RoleUser" name="RoleUser" required>
                 <option value="">Chọn vai trò</option>
                 {{-- Senior có thể đọc, tạo, sửa  --}}
-                <option value="Senior Employee">Senior Employee</option>
+                <option value="0">nhân viên</option>
                 {{-- Junior có thể đọc  --}}
-                <option value="Junior Employee">Junior Employee</option>
+                <option value="1">admin</option>
             </select>
         </div>
 

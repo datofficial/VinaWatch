@@ -22,8 +22,8 @@
                 @foreach($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
-                        <td>{{ $user->NameUser }}</td>
-                        <td>{{ $user->EmailUser }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
                         <td>{{ $user->RoleUser }}</td>
                         <td>{{ $user->city->NameCity }}</td>
                         <td>{{ $user->district->NameDistrict }}</td>

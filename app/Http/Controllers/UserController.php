@@ -48,10 +48,10 @@ class UserController extends Controller
         ]);
 
         User::create([
-            'NameUser' => $validated['NameUser'],
-            'PasswordUser' => Hash::make($validated['PasswordUser']),
+            'name' => $validated['NameUser'],
+            'password' => Hash::make($validated['PasswordUser']),
             'PhoneUser' => $validated['PhoneUser'],
-            'EmailUser' => $validated['EmailUser'],
+            'email' => $validated['EmailUser'],
             'DOBUser' => $validated['DOBUser'],
             'RoleUser' => $validated['RoleUser'],
             'IDCity' => $validated['IDCity'],
@@ -101,10 +101,10 @@ class UserController extends Controller
         ]);
 
         $user->update([
-            'NameUser' => $validated['NameUser'],
-            'PasswordUser' => $request->PasswordUser ? Hash::make($validated['PasswordUser']) : $user->PasswordUser,
+            'name' => $validated['NameUser'],
+            'password' => $request->PasswordUser ? Hash::make($validated['PasswordUser']) : $user->PasswordUser,
             'PhoneUser' => $validated['PhoneUser'],
-            'EmailUser' => $validated['EmailUser'],
+            'email' => $validated['EmailUser'],
             'DOBUser' => $validated['DOBUser'],
             'RoleUser' => $validated['RoleUser'],
             'IDCity' => $validated['IDCity'],
