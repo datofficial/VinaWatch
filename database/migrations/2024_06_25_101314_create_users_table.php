@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('NameUser');
-            $table->string('PasswordUser');
+            $table->string('name');
+            $table->string('password');
             $table->string('PhoneUser', 15)->unique();
-            $table->string('EmailUser')->unique();
+            $table->string('email')->unique();
             $table->date('DOBUser');
             $table->string('RoleUser');
-            $table->unsignedBigInteger('IDCity'); 
-            $table->unsignedBigInteger('IDDistrict'); 
-            $table->unsignedBigInteger('IDWard'); 
-            $table->string('Address'); // Địa chỉ cụ thể 
+            $table->unsignedBigInteger('IDCity');
+            $table->unsignedBigInteger('IDDistrict');
+            $table->unsignedBigInteger('IDWard');
+            $table->string('Address'); // Địa chỉ cụ thể
 
             $table->foreign('IDCity')->references('id')->on('cities')->onDelete('cascade');
             $table->foreign('IDDistrict')->references('id')->on('districts')->onDelete('cascade');

@@ -41,8 +41,8 @@
             <label for="RoleUser">Vai trò</label>
             <select class="form-control" id="RoleUser" name="RoleUser" required>
                 <option value="">Chọn vai trò</option>
-                <option value="Senior Employee">Senior Employee</option>
-                <option value="Junior Employee">Junior Employee</option>
+                <option value="1">Senior Employee</option>
+                <option value="0">Junior Employee</option>
             </select>
         </div>
 

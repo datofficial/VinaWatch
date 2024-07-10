@@ -10,11 +10,11 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'NameUser', 'PasswordUser', 'PhoneUser', 'EmailUser', 'DOBUser', 'RoleUser', 'IDCity', 'IDDistrict', 'IDWard', 'Address',
+        'name', 'password', 'PhoneUser', 'email', 'DOBUser', 'RoleUser', 'IDCity', 'IDDistrict', 'IDWard', 'Address',
     ];
 
     protected $hidden = [
-        'PasswordUser',
+        'password',
     ];
 
     public function city()
@@ -30,5 +30,9 @@ class User extends Authenticatable
     public function ward()
     {
         return $this->belongsTo(Ward::class, 'IDWard');
+    }
+    public function isAdmin()
+    {
+        return $this->RoleUser;
     }
 }
