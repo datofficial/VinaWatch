@@ -41,10 +41,10 @@
                         @csrf
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" required>
+                                <input class="form-control" placeholder="E-mail" name="EmailUser" type="email" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" required>
+                                <input class="form-control" placeholder="Password" name="PasswordUser" type="password" required>
                             </div>
                             <div class="checkbox">
                                 <label>

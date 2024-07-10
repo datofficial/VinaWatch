@@ -20,17 +20,14 @@ class AdminAuthController extends Controller
 
     public function login(Request $request)
     {
-        $account = $request->only(['email', 'password']);
-        $admin_name = $request->email;
-        $role = user:: where('EmailUser', $admin_name)->value('RoleUser');
-        dd($role);
-        if(Auth::guard('admin')->attempt($account)){
-            $accountadmin = Auth::guard('admin')->user();
-            Auth::login($accountadmin);
-            session(['admin' => $accountadmin]);
-            return Redirect::route('drink.index');
-        }else{
-           return Redirect::route('dashboard');
+        $credentials = [
+            'EmailUser' => $request->input('EmailUser'),
+            'PasswordUser' => $request->input('PasswordUser'),
+        ];
+        if (Auth::attempt(['email' => $credentials['EmailUser'], 'password' => $credentials['PasswordUser']])) {
+            return Redirect::route("dashboard");
+        } else {
+            return Redirect::route("login");
         }
     }
 
@@ -39,17 +36,14 @@ class AdminAuthController extends Controller
         $cities = City::all();
         $districts = District::all();
         $wards = Ward::all();
-
         return view('Login.Admin.Register', compact('cities', 'districts', 'wards'));
     }
 
     public function register(Request $request)
     {
-        
-
         $user = User::create([
-            'NameUser' => $request->NameUser,
-            'PasswordUser' => Hash::make($request->PasswordUser),
+            'name' => $request->NameUser,
+            'password' => Hash::make($request->PasswordUser),
             'PhoneUser' => $request->PhoneUser,
             'EmailUser' => $request->EmailUser,
             'DOBUser' => $request->DOBUser,
@@ -63,5 +57,10 @@ class AdminAuthController extends Controller
         Auth::login($user);
 
         return redirect('/dashboard');
+    }
+
+    public function logout(){
+        Auth::logout();
+        return Redirect::route("index");
     }
 }

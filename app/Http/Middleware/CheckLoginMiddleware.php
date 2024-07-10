@@ -8,18 +8,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckLoginAdmin
-{
+class CheckLoginMiddleware{
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
      */
-    public function handle(Request $request, Closure $next): Response
-    {
-        if(Auth::user()->isAdmin()){
+    public function handle(Request $request, Closure $next): Response{
+        if (Auth::check()) {
             return $next($request);
         }
-        return Redirect::route('dashboard');
+        return Redirect::route('login');
     }
 }

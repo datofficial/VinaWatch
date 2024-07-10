@@ -46,11 +46,15 @@
                                     <span class="sub-item">Chỉnh sửa đồng hồ</span>
                                 </a>
                             </li>
+                            @if (Auth::check() && Auth::user()->isAdmin())
                             <li>
+
                                 <a href="{{ route('manufacturers.index') }}">
                                     <span class="sub-item">Quản lý nhà sản xuất</span>
                                 </a>
+
                             </li>
+                            @endif
                             <li>
                                 <a href="{{ route('categories.index') }}">
                                     <span class="sub-item">Quản lý danh mục</span>

@@ -6,16 +6,17 @@ use Illuminate\Foundation\Configuration\Middleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
-        web: __DIR__.'/../routes/web.php',
-        commands: __DIR__.'/../routes/console.php',
+        web: __DIR__ . '/../routes/web.php',
+        commands: __DIR__ . '/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware) {
-      // $middleware->use([
-        //    App\Http\Middleware\CheckPermission::class,
-        //3]);
-        
+    ->withMiddleware(function (Middleware $middleware){
+        $middleWareAdmin = array(
+            App\Http\Middleware\CheckLoginMiddleware::class,
+            App\Http\Middleware\CheckLoginAdmin::class,
+        );
+        $middleware->group("admin", $middleWareAdmin);
     })
-    ->withExceptions(function (Exceptions $exceptions) {
+    ->withExceptions(function (Exceptions $exceptions){
         //
     })->create();
