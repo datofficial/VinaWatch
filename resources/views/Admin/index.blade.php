@@ -44,11 +44,11 @@
   <body>
     <div class="wrapper">
       <!-- Sidebar -->
-      @include('Component.sidebar')
+      @include('Admin.Component.sidebar')
       <!-- End Sidebar -->
 
       <div class="main-panel">
-        @include('Component.main_header')
+        @include('Admin.Component.main_header')
 
         <div class="container">
           <div class="page-inner">

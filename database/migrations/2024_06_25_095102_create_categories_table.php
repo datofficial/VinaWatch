@@ -15,11 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('NameCategory');
             $table->text('DescriptionCategory');
-            $table->unsignedBigInteger('ParentID');
-            $table->timestamp('CreatedDate')->useCurrent();
-            $table->unsignedBigInteger('CreatedBy');
-            $table->timestamp('UpdatedDate')->useCurrent();
-            $table->unsignedBigInteger('UpdatedBy');
         });
     }
 

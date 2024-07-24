@@ -2,6 +2,15 @@
 @section('content')
 <div class="container">
     <h1>Thêm Nhân viên</h1>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('users.store') }}" method="POST">
         @csrf
 
@@ -9,30 +18,45 @@
         <div class="form-group">
             <label for="NameUser">Tên Nhân viên</label>
             <input type="text" class="form-control" id="NameUser" name="NameUser" required>
+            @if ($errors->has('NameUser'))
+                <span class="text-danger">{{ $errors->first('NameUser') }}</span>
+            @endif
         </div>
 
         <!-- Mật khẩu -->
         <div class="form-group">
             <label for="PasswordUser">Mật khẩu</label>
             <input type="password" class="form-control" id="PasswordUser" name="PasswordUser" required>
+            @if ($errors->has('PasswordUser'))
+                <span class="text-danger">{{ $errors->first('PasswordUser') }}</span>
+            @endif
         </div>
 
         <!-- Số điện thoại -->
         <div class="form-group">
             <label for="PhoneUser">Số điện thoại</label>
             <input type="text" class="form-control" id="PhoneUser" name="PhoneUser" required>
+            @if ($errors->has('PhoneUser'))
+                <span class="text-danger">{{ $errors->first('PhoneUser') }}</span>
+            @endif
         </div>
 
         <!-- Email -->
         <div class="form-group">
             <label for="EmailUser">Email</label>
             <input type="email" class="form-control" id="EmailUser" name="EmailUser" required>
+            @if ($errors->has('EmailUser'))
+                <span class="text-danger">{{ $errors->first('EmailUser') }}</span>
+            @endif
         </div>
 
         <!-- Ngày sinh -->
         <div class="form-group">
             <label for="DOBUser">Ngày sinh</label>
             <input type="date" class="form-control" id="DOBUser" name="DOBUser" required>
+            @if ($errors->has('DOBUser'))
+                <span class="text-danger">{{ $errors->first('DOBUser') }}</span>
+            @endif
         </div>
 
         <!-- Vai trò -->
@@ -40,11 +64,12 @@
             <label for="RoleUser">Vai trò</label>
             <select class="form-control" id="RoleUser" name="RoleUser" required>
                 <option value="">Chọn vai trò</option>
-                {{-- Senior có thể đọc, tạo, sửa  --}}
                 <option value="0">nhân viên</option>
-                {{-- Junior có thể đọc  --}}
                 <option value="1">admin</option>
             </select>
+            @if ($errors->has('RoleUser'))
+                <span class="text-danger">{{ $errors->first('RoleUser') }}</span>
+            @endif
         </div>
 
         <!-- Thành phố -->
@@ -56,6 +81,9 @@
                     <option value="{{ $city->id }}">{{ $city->NameCity }}</option>
                 @endforeach
             </select>
+            @if ($errors->has('IDCity'))
+                <span class="text-danger">{{ $errors->first('IDCity') }}</span>
+            @endif
         </div>
 
         <!-- Quận/Huyện -->
@@ -69,6 +97,9 @@
                     @endforeach
                 @endforeach
             </select>
+            @if ($errors->has('IDDistrict'))
+                <span class="text-danger">{{ $errors->first('IDDistrict') }}</span>
+            @endif
         </div>
 
         <!-- Xã/Phường -->
@@ -84,41 +115,24 @@
                     @endforeach
                 @endforeach
             </select>
+            @if ($errors->has('IDWard'))
+                <span class="text-danger">{{ $errors->first('IDWard') }}</span>
+            @endif
         </div>
 
         <!-- Địa chỉ cụ thể -->
         <div class="form-group">
             <label for="Address">Địa chỉ cụ thể</label>
             <input type="text" class="form-control" id="Address" name="Address" required>
+            @if ($errors->has('Address'))
+                <span class="text-danger">{{ $errors->first('Address') }}</span>
+            @endif
         </div>
 
         <button type="submit" class="btn btn-primary">Thêm</button>
         <a href="{{ route('users.index') }}" class="btn btn-secondary">Hủy</a>
     </form>
 </div>
-
-{{-- Dùng để thay đổi màu giá trị nhập của ngày sinh --}}
-<!-- CSS -->
-<style>
-    .date-input {
-        color: #000; /* Default text color */
-    }
-    .date-input:focus {
-        color: #000; /* Focused text color */
-    }
-    /* Thay đổi màu chữ dành cho Chrome, Safari */
-    .date-input::-webkit-datetime-edit {
-        color: #000; /* WebKit based browsers */
-    }
-     /* Thay đổi màu chữ dành cho Firefox */
-    .date-input::-moz-datetime-edit {
-        color: #000; /* Mozilla based browsers */
-    }
-    /* Thay đổi màu chữ dành cho Edge, Internet Explorer */
-    .date-input::ms-datetime-edit {
-        color: #000; /* Microsoft based browsers */
-    }
-</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

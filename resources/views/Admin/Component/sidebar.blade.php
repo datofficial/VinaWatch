@@ -2,14 +2,9 @@
     <div class="sidebar-logo">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
-            {{-- <a href="index.html" class="logo">
-                <img
-                    src="{{ asset('assets/img/vinawatch_logo.png') }}"
-                    alt="VinaWatch Logo"
-                    class="navbar-brand"
-                    height="40"
-                />
-            </a> --}}
+            <a href="{{ route('dashboard') }}" class="logo" style="text-decoration: none;">
+                <h1 class="navbar-brand text-white" style="font-size: 24px; margin: 0;">VinaWatch</h1>
+            </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar" style="padding: 10px 20px; font-size: 18px;">
                     <i class="gg-menu-right" style="font-size: 24px;"></i>
@@ -29,31 +24,29 @@
             <ul class="nav nav-secondary">
                 <li class="nav-item" style="text-align: left;">
                     <a href="{{ route('users.index') }}">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fas fa-user"></i>
                         <p>Quản lý nhân viên</p>
                     </a>
                 </li>
                 <li class="nav-item" style="text-align: left;">
                     <a data-bs-toggle="collapse" href="#watchManagement">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fas fa-watch"></i>
                         <p>Quản lý đồng hồ</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse" id="watchManagement">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="">
+                                <a href="{{ route('watches.index') }}">
                                     <span class="sub-item">Chỉnh sửa đồng hồ</span>
                                 </a>
                             </li>
                             @if (Auth::check() && Auth::user()->isAdmin())
-                            //những menu hiển thị với admin
+                            {{-- Menu hiển thị với admin --}}
                             <li>
-
                                 <a href="{{ route('manufacturers.index') }}">
                                     <span class="sub-item">Quản lý nhà sản xuất</span>
                                 </a>
-
                             </li>
                             @endif
                             <li>
@@ -96,13 +89,13 @@
                 </li>
                 <li class="nav-item" style="text-align: left;">
                     <a href="{{ route('paymentMethods.index') }}">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fas fa-credit-card"></i>
                         <p>Quản lý phương thức thanh toán</p>
                     </a>
                 </li>
                 <li class="nav-item" style="text-align: left;">
                     <a data-bs-toggle="collapse" href="#cityManagement">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fas fa-city"></i>
                         <p>Quản lý đơn vị hành chính</p>
                         <span class="caret"></span>
                     </a>

@@ -22,8 +22,8 @@ class AdminAuthController extends Controller
         }
     }
 
-     public function login(Request $request)
-     {
+    public function login(Request $request)
+    {
         $credentials = [
             'EmailUser' => $request->input('EmailUser'),
             'PasswordUser' => $request->input('PasswordUser'),
@@ -33,7 +33,7 @@ class AdminAuthController extends Controller
         } else {
             return Redirect::route("login");
         }
-     }
+    }
 
     public function showRegistrationForm()
     {
@@ -45,6 +45,21 @@ class AdminAuthController extends Controller
 
     public function register(Request $request)
     {
+        $request->validate([
+            'NameUser' => 'required|string|max:255',
+            'PasswordUser' => 'required|string|min:8',
+            'PhoneUser' => 'required|string|unique:users,PhoneUser',
+            'EmailUser' => 'required|string|email|max:255|unique:users,email',
+            'DOBUser' => 'required|date',
+            'IDCity' => 'required|exists:cities,id',
+            'IDDistrict' => 'required|exists:districts,id',
+            'IDWard' => 'required|exists:wards,id',
+            'Address' => 'required|string|max:255',
+        ], [
+            'PhoneUser.unique' => 'Số điện thoại đã tồn tại.',
+            'EmailUser.unique' => 'Email đã tồn tại.',
+        ]);
+
         $user = User::create([
             'name' => $request->NameUser,
             'password' => Hash::make($request->PasswordUser),

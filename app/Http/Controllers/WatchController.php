@@ -126,4 +126,7 @@ class WatchController extends Controller
         $watch->delete();
         return redirect()->route('watches.index')->with('success', 'Đồng hồ đã được xóa thành công.');
     }
+
+
+    
 }

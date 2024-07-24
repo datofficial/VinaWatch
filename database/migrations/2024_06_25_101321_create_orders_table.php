@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->datetime('DateOrder');
-            $table->string('NameCustomer');
-            $table->string('PhoneCustomer', 10); 
+            $table->string('NameUser');
+            $table->string('PhoneUser', 10); 
             $table->string('StatusOrder');
             $table->decimal('TotalPrice', 10, 2); // Sử dụng kiểu dữ liệu decimal cho giá trị số chính xác nhất
             $table->string('NumberTracking')->unique();

@@ -18,12 +18,14 @@ return new class extends Migration
             $table->string('PhoneUser', 15)->unique();
             $table->string('email')->unique();
             $table->date('DOBUser');
-            $table->string('RoleUser');
+            $table->integer('RoleUser'); // Sử dụng integer cho vai trò
             $table->unsignedBigInteger('IDCity');
             $table->unsignedBigInteger('IDDistrict');
             $table->unsignedBigInteger('IDWard');
             $table->string('Address'); // Địa chỉ cụ thể
+            $table->timestamps(); // Thêm timestamps cho created_at và updated_at
 
+            // Định nghĩa khóa ngoại
             $table->foreign('IDCity')->references('id')->on('cities')->onDelete('cascade');
             $table->foreign('IDDistrict')->references('id')->on('districts')->onDelete('cascade');
             $table->foreign('IDWard')->references('id')->on('wards')->onDelete('cascade');

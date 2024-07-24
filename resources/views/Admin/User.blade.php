@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container">
-        <h1>Danh sách Người dùng</h1>
-        <a href="{{ route('users.create') }}" class="btn btn-primary">Thêm Người dùng mới</a>
+        <h1>Danh sách Nhân viên</h1>
+        <a href="{{ route('users.create') }}" class="btn btn-primary">Thêm Nhân viên mới</a>
         <table class="table mt-4">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Tên Người dùng</th>
+                    <th>Tên Nhân viên</th>
                     <th>Email</th>
                     <th>Vai trò</th>
                     <th>Thành phố</th>

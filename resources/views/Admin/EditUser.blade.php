@@ -42,9 +42,9 @@
             <select class="form-control" id="RoleUser" name="RoleUser" required>
                 <option value="">Chọn vai trò</option>
                 {{-- Senior có thể đọc, tạo, sửa  --}}
-                <option value="Senior Employee">Senior Employee</option>
+                <option value="1">admin</option>
                 {{-- Junior có thể đọc  --}}
-                <option value="Junior Employee">Junior Employee</option>
+                <option value="0">nhan viên</option>
                 <option value="Customer">Customer</option>
             </select>
         </div>
